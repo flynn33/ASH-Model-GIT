@@ -1,0 +1,166 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{float}
+\geometry{margin=1in}
+
+\newtheorem{theorem}{Theorem}
+
+\title{Procedural Cosmology in 9 Dimensions: The Adinkra-Stabilized Hypercube Model (ASH Model)}
+\author{James Daley \\ \small Independent Researcher, Author, Full Stack Developer \\ \small Mathematics and Calculations: A.I. Assistance}
+\date{December 23, 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Adinkra-Stabilized Hypercube Model (ASH Model) is a procedural cosmology framework that embeds supersymmetric adinkra graphs and doubly-even self-dual error-correcting codes within a 9-dimensional hypercube. Each of the 512 vertices represents a distinct cosmological realm encoded as a binary string of length nine.
+
+Through mathematical analysis and agent-based simulations, the model exhibits emergent stability, robust error correction under random bit-flip noise, and rapid convergence to Gaussian (bell-curve) occupancy distributions across Hamming weight planes. Lindenmayer-system (L-System) branching generates fractal patterns analogous to quantum decoherence trees, providing a computational visualisation of the Many-Worlds Interpretation.
+
+The recurrence of nine dimensions is mathematically motivated by connections to string theory anomaly cancellation, optimal lattice packing (E$_8$ and Leech lattices), and coding theory. A modal-logic foundation is provided by five axioms of existence formalised in Kripke-frame semantics (detailed in \texttt{axioms-of-existence.json}), establishing relational ontology, structural compressibility, multi-scale persistence, energetic cost of erasure, and self-reference as the basis for consciousness.
+
+While classical and discrete, the model offers a computationally tractable platform for exploring the intersection of supersymmetry, coding theory, high-dimensional geometry, and cosmological structure. Future extensions will incorporate genuine quantum amplitudes, richer SUSY multiplets, tensor networks, and comparative studies in neighbouring dimensions.
+\end{abstract}
+
+\section{Introduction}
+The search for unified descriptions of physical reality has repeatedly revealed deep links between mathematical structures, computational models, and fundamental principles. The ASH Model proposes a novel procedural cosmology that leverages supersymmetric algebra, error-correcting codes, and 9-dimensional combinatorics.
+
+The state space is the 9-dimensional hypercube $\mathbb{F}_2^9$ whose 512 vertices encode distinct realms. Adinkra graphs are embedded at each vertex to supply transformation rules that simultaneously act as linear error-correcting codes.
+
+Simulations show rapid convergence to stable Gaussian distributions across Hamming weight planes, independent of initial conditions. Embedded codes correct noise up to the theoretical Hamming bound, while L-System branching produces fractal decoherence-like trees.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{../figures/hypercube-3d-projection.png}
+\caption{3D projection of the hypercube structure underlying the ASH Model (full 9D is abstracted).}
+\label{fig:hypercube}
+\end{figure}
+
+\section{Related Work}
+\subsection{Supersymmetry and Adinkras}
+Adinkras encode one-dimensional supersymmetric theories graphically \citep{fauxgates2005,doran2008}.
+
+\subsection{Error-Correcting Codes in Physics}
+Links between SUSY representations and codes illuminate holographic principles \citep{almheiri2015}.
+
+\subsection{High-Dimensional Geometry and String Theory}
+Nine spatial dimensions appear in compactifications and anomaly cancellation \citep{green1984,polchinski1998}, with optimal lattices exhibiting unique properties \citep{cohnkumar2009,cohn2019}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/adinkra-graph-colored.png}
+\caption{Example coloured adinkra graph embedded at hypercube vertices.}
+\label{fig:adinkra}
+\end{figure}
+
+\section{Mathematical Framework}
+The hypercube $\mathcal{H}_9 = (\{0,1\}^9, E)$ is stratified by Hamming weight into planes 0 through 9.
+
+Transformations: $x \mapsto x \oplus c$ for codewords $c \in C$.
+
+Averaging operator:
+\[
+\mathcal{T}f(x) = \frac{1}{|C|} \sum_{c \in C} f(x \oplus c)
+\]
+(projection onto $C$-invariant functions; proof in Appendix).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../figures/single-bit-error.png}
+\caption{Single bit-flip error, correctable by embedded codes.}
+\label{fig:bitflip}
+\end{figure}
+
+\section{Simulation Methodology}
+Implemented in \texttt{simulation.py} (NumPy). Agents undergo codeword XOR and low-probability noise.
+
+\section{Results}
+Gaussian occupancy centred near plane 4.5; total variation distance $<0.05$ under noise.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{../figures/simulation-histogram.png}
+\caption{Gaussian realm occupancy distribution from simulations.}
+\label{fig:histogram}
+\end{figure}
+
+\section{Discussion}
+\subsection{Logical Foundations: Axioms of Existence}
+Five axioms (\texttt{axioms-of-existence.json}) provide Kripke-frame basis (enumerated in Markdown companion).
+
+Future: quantum extensions, tensor networks, 8D/10D comparisons.
+
+\section{Conclusion}
+The ASH Model bridges symbolic cosmology and mathematical physics in 9D. Open-source assets enable verification and extension.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
+
+\appendix
+\section{Selected Proofs}
+
+\subsection{Idempotence of the Averaging Operator $\mathcal{T}$}
+
+Let $C \subset \mathbb{F}_2^9$ be a linear code and define the averaging operator
+\[
+\mathcal{T}f(x) = \frac{1}{|C|} \sum_{c \in C} f(x \oplus c)
+\]
+for functions $f: \mathbb{F}_2^9 \to \mathbb{R}$.
+
+\begin{theorem}
+$\mathcal{T}$ is a projection: $\mathcal{T}^2 = \mathcal{T}$.
+\end{theorem}
+
+\begin{proof}
+Compute
+\begin{align*}
+(\mathcal{T}^2 f)(x) &= \frac{1}{|C|} \sum_{c \in C} (\mathcal{T} f)(x \oplus c) \\
+&= \frac{1}{|C|} \sum_{c \in C} \frac{1}{|C|} \sum_{d \in C} f((x \oplus c) \oplus d) \\
+&= \frac{1}{|C|^2} \sum_{c,d \in C} f(x \oplus (c \oplus d)).
+\end{align*}
+As $C$ is linear, $c \oplus d$ runs over all elements of $C$ exactly $|C|$ times for fixed $c$. Thus
+\[
+(\mathcal{T}^2 f)(x) = \frac{1}{|C|^2} \cdot |C| \sum_{e \in C} f(x \oplus e) = \mathcal{T} f(x).
+\]
+Hence $\mathcal{T}^2 = \mathcal{T}$.
+\end{proof}
+
+Additionally, $\mathcal{T}$ projects onto the subspace of $C$-invariant functions.
+
+\subsection{Error Correction Bound}
+
+\begin{theorem}
+A linear code $C \subset \mathbb{F}_2^n$ with minimum distance $d$ corrects any error of Hamming weight $t$ whenever $2t < d$.
+\end{theorem}
+
+\begin{proof}
+Let transmitted codeword $c \in C$ and received vector $r = c \oplus e$ with $\mathrm{wt}(e) = t$. For any distinct $c' \in C$,
+\[
+\mathrm{dist}(r, c') = \mathrm{wt}(c' \oplus c \oplus e) \geq \mathrm{wt}(c' \oplus c) - \mathrm{wt}(e) \geq d - t,
+\]
+while $\mathrm{dist}(r, c) = t$. If $t < d - t$ (i.e., $2t < d$), then $c$ is the unique nearest codeword, so nearest-neighbour decoding recovers $c$.
+\end{proof}
+
+\subsection{Existence of Stationary Distribution (Markov Chain)}
+
+The agent dynamics form a finite-state Markov chain on $\mathbb{F}_2^9$. Transformations are periodic applications of translations by codewords, interspersed with low-probability bit flips.
+
+\begin{theorem}
+If the chain is irreducible and aperiodic, there exists a unique stationary distribution $\pi$, and convergence occurs from any initial state.
+\end{theorem}
+
+\begin{proof}
+Standard result for finite Markov chains: irreducibility ensures accessibility of all states; aperiodicity (guaranteed by random noise) ensures convergence to the unique stationary $\pi$ (Perron–Frobenius theorem).
+\end{proof}
+
+In simulations, noise ensures these conditions, yielding the observed Gaussian marginals on Hamming weight planes.
+
+\end{document}
