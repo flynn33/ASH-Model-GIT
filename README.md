@@ -26,7 +26,7 @@ The LaTeX paper compiles to PDF and includes figures, proofs, and references.
 
 ## Preprint PDF
 
-[Download ASH Model Research Paper (PDF, December 23, 2025)]([ASH-Model-Preprint-v1.pdf](https://github.com/flynn33/ASH-Model-GIT/blob/main/ASH-Model-Preprint-v1.pdf))
+[Download ASH Model Research Paper (PDF, December 23, 2025) [ASH-Model-Preprint-v1.pdf](https://github.com/flynn33/ASH-Model-GIT/blob/main/ASH-Model-Preprint-v1.pdf)
 
 ## Quick Start
 
